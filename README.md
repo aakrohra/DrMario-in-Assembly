@@ -1,7 +1,7 @@
 # Dr. Mario in MIPS Assembly
-![Quiz90](images/drmario_and_viruses.png)
-This README will go through my progress and the features I chose to implement.
-## Game Specifications
+<img src="/readme_assets/drmario_and_viruses.png" alt="Dr. Mario and Viruses" width="300" height="300">
+
+## Game Specifications ##
 - 1x1 unit width/height (pixels)
 - 32x32 display width/height (pixels)
 - Base Address for Display: 0x10008000 ($gp)
@@ -29,11 +29,13 @@ This README will go through my progress and the features I chose to implement.
   - On each sleep call, a counter increments by 16 milliseconds. When this counter exceeds the set limit, the current capsule falls by one pixel, and the set limit decreases slightly (so it is reached slightly faster next time).
 - Sound effects for different conditions (rotating, moving, placing, completing 4+, blocked action, game over, and new game).
 - Game Over screen + option to try again
-![image](/readme_assets/game_over_screen.png)
+<img src="/readme_assets/game_over_screen.png" alt="Game Over Screen" width="200" height="200">
+
 - Pause functionality
-![image](/readme_assets/pause.png)
+<img src="/readme_assets/pause.png" alt="Pause Screen" width="200" height="200">
+
 - Harder levels that trigger after the player eliminates all of the viruses in the current level.
   - Increased speed of gravity for each level: When it is detected that all 4 viruses are set to 0/black in internal data, the glass bottle is reset to black and the set limit for the millisecond counter to reach before dropping the capsule by 1 pixel is reduced dramatically.
 - Each virus image disappears as the viruses of that colour are eliminated from the playing field.
   - Virus colours are stored into a VIRUS DATA array at the same time that they are generated and stored into the first 16 bytes of the CAPSULES array. As they are stored in the same order, when it is found that the capsules array has a virus at a certain location set to 0/black, the same virus can be set to black in the VIRUS DATA array.
-![image](/readme_assets/viruses_gone.png)
+<img src="/readme_assets/viruses_gone.png" alt="Viruses Gone" width="200" height="200">
